@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Ruby - SebDocs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Ruby";
+        var mkdocs_page_input_path = "ruby.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> SebDocs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Welcome to SebDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../arduino/">Arduino</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../autotools/">Autotools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../backup_server/">Backup server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bash/">Bash</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cpp/">CPP</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../curl/">Curl</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../dns/">DNS</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../kernel_module/">Kernel module</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../linux_file_permissions/">Linux File Permissions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../linux_user_group/">Linux User Group</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../lxc/">LXC</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mount/">Mount</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../network_server/">Network server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pdf/">PDF</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../raspberry_pi/">Raspberry Pi</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../rsa/">RSA</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Ruby</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#presentation">Presentation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#syntax">Syntax</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#types">Types</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#integer">Integer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#string">String</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#boolean">Boolean</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operator">Operator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#array">Array</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hash">Hash</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#loop">Loop</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1">Example 1</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2">Example 2</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3">Example 3</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#condition">Condition</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#syntax_1">Syntax</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1_1">Example 1</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class">Class</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#syntax_2">Syntax</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#attribute">Attribute</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#method-initialize">Method initialize</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#method">Method</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#method-with-parameter">Method with parameter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#heritage">Heritage</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1_2">Example 1</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#return">Return</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#methods">Methods</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#common">Common</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#class_1">class</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../samba/">Samba</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../teensy/">Teensy</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ubuntu_launcher/">Ubuntu Launcher</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vim/">Vim</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../virtualbox/">VirtualBox</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wifi/">Wifi</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wildcards/">Wildcards</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../xml/">XML</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">SebDocs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Ruby</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ruby">Ruby</h1>
+<h2 id="presentation">Presentation</h2>
+<p>Installation:</p>
+<pre><code>sudo apt install ruby
+</code></pre>
+<p>Get the version of Ruby:</p>
+<pre><code>ruby -v
+</code></pre>
+<p>Run an Interactive Ruby (IRB):</p>
+<pre><code>irb
+</code></pre>
+<p>Clean the console:</p>
+<pre><code>CTRL + L
+</code></pre>
+<p>Exit the console:</p>
+<pre><code>quit OR exit
+</code></pre>
+<p>Run a ruby script:</p>
+<pre><code>ruby mon_script.rb
+</code></pre>
+<p>Library Ruby:</p>
+<pre><code>gem
+</code></pre>
+<h2 id="syntax">Syntax</h2>
+<h3 id="types">Types</h3>
+<h4 id="integer">Integer</h4>
+<p>Definition:</p>
+<pre><code>&gt; int = 1
+=&gt; 1
+</code></pre>
+<h4 id="string">String</h4>
+<p>Definition:</p>
+<pre><code>&gt; string = &quot;text&quot;
+=&gt; text
+</code></pre>
+<h4 id="boolean">Boolean</h4>
+<p>Definition:</p>
+<pre><code>&gt; bool = true
+=&gt; true
+</code></pre>
+<p>Example, file.rb:</p>
+<pre><code class="language-rb">a = 15
+bool = (a &gt; 10)
+puts bool
+</code></pre>
+<p>Run:</p>
+<pre><code>&gt; ruby file.rb
+true
+</code></pre>
+<h3 id="operator">Operator</h3>
+<pre><code>+=
+</code></pre>
+<h3 id="array">Array</h3>
+<p>Definition:</p>
+<pre><code>&gt; tab = [1,2,4]
+=&gt; [1, 2, 4]
+</code></pre>
+<p>Get element:</p>
+<pre><code>&gt; tab[2]
+=&gt; 4
+</code></pre>
+<p>Get size:</p>
+<pre><code>&gt; tab.size
+=&gt; 3
+</code></pre>
+<p>Reverse:</p>
+<pre><code>&gt; tab.reverse
+=&gt; [4, 2, 1]
+</code></pre>
+<p>Add element at the end:</p>
+<pre><code>&gt; tab &lt;&lt; 8
+=&gt; [1, 2, 4, 8]
+</code></pre>
+<h3 id="hash">Hash</h3>
+<p>Definition:</p>
+<pre><code>&gt; hash = {a:1, b:2}
+=&gt; {:a=&gt;1, :b=&gt;2}
+</code></pre>
+<p>Get element:</p>
+<pre><code>&gt; hash[:a]
+=&gt; 1
+</code></pre>
+<p>Add element:</p>
+<pre><code>&gt; hash[:c] = 3
+=&gt; 3
+</code></pre>
+<p>Show hash:</p>
+<pre><code>&gt; hash
+=&gt; {:a=&gt;1, :b=&gt;2, :c=&gt;3}
+</code></pre>
+<h3 id="loop">Loop</h3>
+<h4 id="example-1">Example 1</h4>
+<p>file.rb:</p>
+<pre><code class="language-rb">tab = [1, 2, 3]
+
+tab.each do |i|
+    puts i
+end
+</code></pre>
+<p>Run:</p>
+<pre><code>&gt; ruby file.rb
+1
+2
+3
+</code></pre>
+<h4 id="example-2">Example 2</h4>
+<p>file.rb:</p>
+<pre><code class="language-rb">3.times do
+    puts &quot;Hello&quot;
+end
+</code></pre>
+<p>Run:</p>
+<pre><code>&gt; ruby file.rb
+Hello
+Hello
+Hello
+</code></pre>
+<h4 id="example-3">Example 3</h4>
+<p>file.rb:</p>
+<pre><code class="language-rb">3.times do |i|
+    puts &quot;Hello #{i}&quot;
+end
+</code></pre>
+<p>Run:</p>
+<pre><code>&gt; ruby file.rb
+Hello 0
+Hello 1
+Hello 2
+</code></pre>
+<h3 id="condition">Condition</h3>
+<h4 id="syntax_1">Syntax</h4>
+<pre><code>==    equal to
+!=    not equal to
+&gt;     greater than
+&lt;     lower than
+&gt;=    greater or egal than
+&lt;=    lower or egal than
+&amp;&amp;    logical and
+||    logical or
+</code></pre>
+<pre><code>if
+elsif
+else
+end
+</code></pre>
+<h4 id="example-1_1">Example 1</h4>
+<p>file.rb:</p>
+<pre><code class="language-rb">a = 5
+
+puts &quot;a = #{a}&quot;
+
+if a &gt; 10
+    puts &quot;a &gt; 10&quot;
+else
+    puts &quot;a &lt;= 10&quot;
+end
+</code></pre>
+<p>Run:</p>
+<pre><code>&gt; ruby file.rb
+a = 5
+a &lt;= 10
+</code></pre>
+<h3 id="class">Class</h3>
+<h4 id="syntax_2">Syntax</h4>
+<p>To create a class:</p>
+<pre><code class="language-rb">class &lt;Name&gt;
+    ...
+end
+</code></pre>
+<p>/!\ The class name must start with a capital letter.</p>
+<h4 id="attribute">Attribute</h4>
+<pre><code class="language-rb">    attr_accessor :&lt;attr_1&gt;, :&lt;attr_2&gt;
+</code></pre>
+<h4 id="method-initialize">Method initialize</h4>
+<p>Method call when a new object is created.</p>
+<pre><code class="language-rb">    def initialize(&lt;parameter&gt;)
+        &lt;method_definition&gt;
+    end
+</code></pre>
+<h4 id="method">Method</h4>
+<pre><code class="language-rb">    def &lt;method&gt;
+        &lt;method_definition&gt;
+    end
+</code></pre>
+<h4 id="method-with-parameter">Method with parameter</h4>
+<pre><code class="language-rb">    def &lt;method&gt;(&lt;parameter&gt;)
+        &lt;method_definition&gt;
+    end
+</code></pre>
+<h4 id="heritage">Heritage</h4>
+<pre><code>class &lt;Name&gt; &lt; &lt;Class_parent&gt;
+    ...
+end
+</code></pre>
+<h4 id="example-1_2">Example 1</h4>
+<p>file.rb:</p>
+<pre><code class="language-rb">class Utilisateur
+    attr_accessor :prenom, :nom, :pays
+
+    def initialize(prenom)
+       @prenom = prenom
+    end
+
+    def nom_complet
+        prenom + &quot; &quot; + nom
+    end
+
+    def habite_en(valeur)
+       valeur == pays
+    end
+end
+
+bob = Utilisateur.new(&quot;Bob&quot;)
+bob.nom = &quot;Lewis&quot;
+bob.pays = &quot;France&quot;
+
+puts bob.prenom + &quot; &quot; + bob.nom
+bob.nom_complet
+puts bob.habite_en(&quot;France&quot;)
+</code></pre>
+<p>Run:</p>
+<pre><code>&gt; ruby file.rb
+Bob Lewis
+Bob Lewis
+true
+</code></pre>
+<h3 id="return">Return</h3>
+<p>In a function or a method:</p>
+<pre><code>return &lt;value&gt;
+</code></pre>
+<h2 id="methods">Methods</h2>
+<h3 id="common">Common</h3>
+<h4 id="class_1">class</h4>
+<p>Get class name:</p>
+<pre><code>&gt; 10.class
+=&gt; Integer
+&gt; 78.5.class
+=&gt; Float
+&gt; true.class
+=&gt; TrueClass
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../rsa/" class="btn btn-neutral float-left" title="RSA"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../samba/" class="btn btn-neutral float-right" title="Samba">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../rsa/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../samba/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
