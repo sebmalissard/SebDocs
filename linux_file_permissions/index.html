@@ -1,235 +1,1348 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Linux File Permissions - SebDocs</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Linux File Permissions";
-        var mkdocs_page_input_path = "linux_file_permissions.md";
-        var mkdocs_page_url = null;
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../kernel_module/">
+      
+      
+        <link rel="next" href="../linux_user_group/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>Linux File Permissions - SebDocs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> SebDocs
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Welcome to SebDocs</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../arduino/">Arduino</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../autotools/">Autotools</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../backup_server/">Backup server</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../bash/">Bash</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../cpp/">CPP</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../curl/">Curl</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../dns/">DNS</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../kernel_module/">Kernel module</a>
-                </li>
-              </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Linux File Permissions</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#viewing-standard-permissions">Viewing standard permissions</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#file-type">File type</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#read-permission">Read permission</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#write-permission">Write permission</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#execute-permission">Execute permission</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#extended-permission">Extended permission</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#modify-standard-permission">Modify standard permission</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#chmod">chmod</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#chown">chown</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#access-control-list-acl">Access Control List (ACL)</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#mount-filesystem-with-acl">Mount filesystem with ACL</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#get-acl">Get ACL</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#set-acl">Set ACL</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../linux_user_group/">Linux User Group</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../lxc/">LXC</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../mount/">Mount</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../network_server/">Network server</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pdf/">PDF</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../raspberry_pi/">Raspberry Pi</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../rsa/">RSA</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../ruby/">Ruby</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../samba/">Samba</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../teensy/">Teensy</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../ubuntu_launcher/">Ubuntu Launcher</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../vim/">Vim</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../virtualbox/">VirtualBox</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../wifi/">Wifi</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../wildcards/">Wildcards</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../xml/">XML</a>
-                </li>
-              </ul>
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-file-permissions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SebDocs" class="md-header__button md-logo" aria-label="SebDocs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SebDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux File Permissions
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">SebDocs</a>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Linux File Permissions</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h1 id="linux-file-permissions">Linux File Permissions</h1>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SebDocs" class="md-nav__button md-logo" aria-label="SebDocs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SebDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to SebDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arduino/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arduino
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autotools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autotools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup_server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../curl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kernel_module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kernel module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux File Permissions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux File Permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-standard-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viewing standard permissions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Viewing standard permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execute permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modify-standard-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modify standard permission
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modify standard permission">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chmod
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chown
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-control-list-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Control List (ACL)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Control List (ACL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mount-filesystem-with-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mount filesystem with ACL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get ACL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set ACL
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux_user_group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux User Group
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lxc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LXC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mkdocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mount/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mount
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network_server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PDF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raspberry_pi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raspberry Pi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RSA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ruby/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ruby
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../samba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samba
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teensy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teensy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ubuntu_launcher/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ubuntu Launcher
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtualbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VirtualBox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wifi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wildcards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wildcards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-standard-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viewing standard permissions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Viewing standard permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execute permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modify-standard-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modify standard permission
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modify standard permission">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chmod
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chown
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-control-list-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Control List (ACL)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Control List (ACL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mount-filesystem-with-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mount filesystem with ACL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get ACL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set ACL
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="linux-file-permissions">Linux File Permissions</h1>
 <p>Sources :<br />
 <a href="https://wiki.archlinux.org/index.php/File_permissions_and_attributes">https://wiki.archlinux.org/index.php/File_permissions_and_attributes</a>
 <a href="https://www.mkssoftware.com/docs/man1/ls.1.asp">https://www.mkssoftware.com/docs/man1/ls.1.asp</a></p>
 <h2 id="viewing-standard-permissions">Viewing standard permissions</h2>
 <p>Use the <code>ls -l</code> command to view the permissions set for the contents of a directory.</p>
-<pre><code class="language-sh">$ ls -l /home/$USER
-total 32
-drwxr-xr-x 2 seb seb 4096 déc.   7 20:05 Desktop
-drwxr-xr-x 2 seb seb 4096 déc.   7 20:05 Documents
-drwxr-xr-x 2 seb seb 4096 déc.   7 20:05 Downloads
-drwxr-xr-x 2 seb seb 4096 déc.   7 20:05 Music
-drwxr-xr-x 2 seb seb 4096 déc.   7 20:05 Pictures
-drwxr-xr-x 2 seb seb 4096 déc.   7 20:05 Public
-drwxr-xr-x 2 seb seb 4096 déc.   7 20:05 Templates
-drwxr-xr-x 2 seb seb 4096 déc.   7 20:05 Videos
-</code></pre>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/home/<span class="nv">$USER</span>
+total<span class="w"> </span><span class="m">32</span>
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>seb<span class="w"> </span>seb<span class="w"> </span><span class="m">4096</span><span class="w"> </span>déc.<span class="w">   </span><span class="m">7</span><span class="w"> </span><span class="m">20</span>:05<span class="w"> </span>Desktop
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>seb<span class="w"> </span>seb<span class="w"> </span><span class="m">4096</span><span class="w"> </span>déc.<span class="w">   </span><span class="m">7</span><span class="w"> </span><span class="m">20</span>:05<span class="w"> </span>Documents
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>seb<span class="w"> </span>seb<span class="w"> </span><span class="m">4096</span><span class="w"> </span>déc.<span class="w">   </span><span class="m">7</span><span class="w"> </span><span class="m">20</span>:05<span class="w"> </span>Downloads
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>seb<span class="w"> </span>seb<span class="w"> </span><span class="m">4096</span><span class="w"> </span>déc.<span class="w">   </span><span class="m">7</span><span class="w"> </span><span class="m">20</span>:05<span class="w"> </span>Music
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>seb<span class="w"> </span>seb<span class="w"> </span><span class="m">4096</span><span class="w"> </span>déc.<span class="w">   </span><span class="m">7</span><span class="w"> </span><span class="m">20</span>:05<span class="w"> </span>Pictures
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>seb<span class="w"> </span>seb<span class="w"> </span><span class="m">4096</span><span class="w"> </span>déc.<span class="w">   </span><span class="m">7</span><span class="w"> </span><span class="m">20</span>:05<span class="w"> </span>Public
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>seb<span class="w"> </span>seb<span class="w"> </span><span class="m">4096</span><span class="w"> </span>déc.<span class="w">   </span><span class="m">7</span><span class="w"> </span><span class="m">20</span>:05<span class="w"> </span>Templates
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>seb<span class="w"> </span>seb<span class="w"> </span><span class="m">4096</span><span class="w"> </span>déc.<span class="w">   </span><span class="m">7</span><span class="w"> </span><span class="m">20</span>:05<span class="w"> </span>Videos
+</code></pre></div>
 <p>You can view permissions along a path with <code>namei -l</code> command.</p>
-<pre><code class="language-sh">$ namei -l /home/seb/Documents/document.txt 
-f: /home/seb/Documents/document.txt
-drwxr-xr-x root root /
-drwxr-xr-x root root home
-drwxr-xr-x seb  seb  seb
-drwxr-xr-x seb  seb  Documents
--rw-r--r-- seb  seb  document.txt
-</code></pre>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>namei<span class="w"> </span>-l<span class="w"> </span>/home/seb/Documents/document.txt<span class="w"> </span>
+f:<span class="w"> </span>/home/seb/Documents/document.txt
+drwxr-xr-x<span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span>/
+drwxr-xr-x<span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span>home
+drwxr-xr-x<span class="w"> </span>seb<span class="w">  </span>seb<span class="w">  </span>seb
+drwxr-xr-x<span class="w"> </span>seb<span class="w">  </span>seb<span class="w">  </span>Documents
+-rw-r--r--<span class="w"> </span>seb<span class="w">  </span>seb<span class="w">  </span>document.txt
+</code></pre></div>
 <p>The first character is the file type, the next characters are three permission (owner, group and other) triads (read, write and execute) and the optional final character indicated an extended permission.</p>
 <h3 id="file-type">File type</h3>
 <table>
@@ -373,10 +1486,10 @@ drwxr-xr-x seb  seb  Documents
 </table>
 <h2 id="modify-standard-permission">Modify standard permission</h2>
 <h3 id="chmod">chmod</h3>
-<p>The setuid can be enable with the following command:</p>
-<pre><code>chmod 4755 file
+<p>The setuid can be enable with the following command:
+<div class="highlight"><pre><span></span><code>chmod 4755 file
 chmod u+s file
-</code></pre>
+</code></pre></div></p>
 <p>setuid=4, setgid=2 and sticky=1</p>
 <h3 id="chown">chown</h3>
 <p>TODO</p>
@@ -385,16 +1498,16 @@ chmod u+s file
 <p>ACLs are a second level of discretionary permissions, that may override the standard permissions.</p>
 <h3 id="mount-filesystem-with-acl">Mount filesystem with ACL</h3>
 <p>To verify that the filesystem was mounted with the acl option the <code>tune2fs -l</code> can be used:</p>
-<pre><code># tune2fs -l /dev/sda5 | grep &quot;Default mount options&quot;
+<div class="highlight"><pre><span></span><code># tune2fs -l /dev/sda5 | grep &quot;Default mount options&quot;
 Default mount options:    user_xattr acl
-</code></pre>
+</code></pre></div>
 <p>If your filesystem has not been mounted with the ‘acl’ option, you can re-mount it giving the needed option:</p>
-<pre><code># mount -o remount -o acl /dev/sda1
-</code></pre>
+<div class="highlight"><pre><span></span><code># mount -o remount -o acl /dev/sda1
+</code></pre></div>
 <p>However, notice that the mount options set this way, will not be persistent, and will not survive a reboot. If you want to obtain persistence, you have to modify the filesystem mount options in /etc/fstab, assigning the ‘acl’ option statically.</p>
 <h2 id="get-acl">Get ACL</h2>
 <p>The command to get acl information is getfacl.</p>
-<pre><code>$ ls -al document.txt 
+<div class="highlight"><pre><span></span><code>$ ls -al document.txt 
 -rw-rw-r--+ 1 seb seb 9 mars  13 20:41 document.txt
 $ getfacl document.txt 
 # file: document.txt
@@ -405,10 +1518,10 @@ user:toto:rw-
 group::r--
 mask::rw-
 other::r--
-</code></pre>
+</code></pre></div>
 <p>With ACL, the group triad is replace by the ACL mask.</p>
 <p>Note: If the file had not acl, the standard permission are display.</p>
-<pre><code>$ ls -l file.txt 
+<div class="highlight"><pre><span></span><code>$ ls -l file.txt 
 -rw-r--r-- 1 seb seb 0 mars  13 21:48 file.txt
 $ getfacl file.txt 
 # file: file.txt
@@ -417,13 +1530,13 @@ $ getfacl file.txt
 user::rw-
 group::r--
 other::r--
-</code></pre>
+</code></pre></div>
 <h2 id="set-acl">Set ACL</h2>
 <p>The command to set acl information is setfacl.</p>
-<pre><code>$ setfacl -m u:toto:rw document.txt
-</code></pre>
-<p>With acl a mask is applied to the other ACL permission (except for owner permission). Example:</p>
-<pre><code>$ setfacl -m g::rw document.txt
+<div class="highlight"><pre><span></span><code>$ setfacl -m u:toto:rw document.txt
+</code></pre></div>
+<p>With acl a mask is applied to the other ACL permission (except for owner permission). Example:
+<div class="highlight"><pre><span></span><code>$ setfacl -m g::rw document.txt
 $ setfacl -m mask:r document.txt
 $ getfacl document.txt 
 # file: document.txt
@@ -436,9 +1549,9 @@ mask::r--
 other::r--
 $ ls -l document.txt 
 -rw-r--r--+ 1 seb seb 9 mars  13 20:41 document.txt
-</code></pre>
-<p>Example to set several permission in the same command with setfacl -m:</p>
-<pre><code>$ setfacl -m user::rx,other::rwx document.txt
+</code></pre></div></p>
+<p>Example to set several permission in the same command with setfacl -m:
+<div class="highlight"><pre><span></span><code>$ setfacl -m user::rx,other::rwx document.txt
 $ getfacl document.txt 
 # file: document.txt
 # owner: seb
@@ -448,52 +1561,61 @@ user:toto
 group::rw-
 mask::rw-
 other::rwx
-</code></pre>
-              
+</code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../kernel_module/" class="btn btn-neutral float-left" title="Kernel module"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../linux_user_group/" class="btn btn-neutral float-right" title="Linux User Group">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
           
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../kernel_module/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../linux_user_group/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
 </html>
