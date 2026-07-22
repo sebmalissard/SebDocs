@@ -1,2 +1,12 @@
 site_name: SebDocs
-theme: readthedocs
+
+theme:
+  name: material
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - drawio
