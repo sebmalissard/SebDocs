@@ -869,6 +869,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../thunderbird/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thunderbird
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ubuntu_launcher/" class="md-nav__link">
         
   
@@ -1175,7 +1202,7 @@ S'il n'est pas défini, le compilateur effectue une simple copie des membres (sa
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">I</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">I</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">I</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// utilise l&#39;implementation par default de ce constructeur</span>
+<span class="w">    </span><span class="n">I</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">I</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// utilise l'implementation par default de ce constructeur</span>
 <span class="w">    </span><span class="c1">// I::I() is implicitly defined as deleted</span>
 <span class="p">};</span>
 </code></pre></div>
@@ -1216,7 +1243,7 @@ S'il n'est pas défini, le compilateur effectue une simple copie des membres (sa
 <span class="c1">//  bool nb1 = b2; // error: copy-initialization does not consider B::operator bool()</span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">nb2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b2</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK: static_cast performs direct-initialization</span>
 
-<span class="w">    </span><span class="p">[](...){}(</span><span class="n">a4</span><span class="p">,</span><span class="w"> </span><span class="n">a5</span><span class="p">,</span><span class="w"> </span><span class="n">na1</span><span class="p">,</span><span class="w"> </span><span class="n">na2</span><span class="p">,</span><span class="w"> </span><span class="n">b5</span><span class="p">,</span><span class="w"> </span><span class="n">nb2</span><span class="p">);</span><span class="w"> </span><span class="c1">// may suppress &quot;unused variable&quot; warnings</span>
+<span class="w">    </span><span class="p">[](...){}(</span><span class="n">a4</span><span class="p">,</span><span class="w"> </span><span class="n">a5</span><span class="p">,</span><span class="w"> </span><span class="n">na1</span><span class="p">,</span><span class="w"> </span><span class="n">na2</span><span class="p">,</span><span class="w"> </span><span class="n">b5</span><span class="p">,</span><span class="w"> </span><span class="n">nb2</span><span class="p">);</span><span class="w"> </span><span class="c1">// may suppress "unused variable" warnings</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="implicit-conversions">Implicit conversions</h3>

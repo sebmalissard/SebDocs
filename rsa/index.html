@@ -760,6 +760,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../thunderbird/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thunderbird
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ubuntu_launcher/" class="md-nav__link">
         
   
@@ -952,13 +979,13 @@
 
 <h1 id="rsa">RSA</h1>
 <p><a href="https://medium.com/@bn121rajesh/rsa-sign-and-verify-using-openssl-behind-the-scene-bf3cac0aade2">https://medium.com/@bn121rajesh/rsa-sign-and-verify-using-openssl-behind-the-scene-bf3cac0aade2</a></p>
-<div class="highlight"><pre><span></span><code>$ echo $(($(sha256sum file | awk &#39;{printf $1}&#39; | wc -m)*4))
+<div class="highlight"><pre><span></span><code>$ echo $(($(sha256sum file | awk '{printf $1}' | wc -m)*4))
 256
-$ echo $(($(sha1sum file | awk &#39;{printf $1}&#39; | wc -m)*4))
+$ echo $(($(sha1sum file | awk '{printf $1}' | wc -m)*4))
 160
-$ echo $(($(md5sum file | awk &#39;{printf $1}&#39; | wc -m)*4))
+$ echo $(($(md5sum file | awk '{printf $1}' | wc -m)*4))
 128
-$ echo $(($(sha512sum file | awk &#39;{printf $1}&#39; | wc -m)*4))
+$ echo $(($(sha512sum file | awk '{printf $1}' | wc -m)*4))
 512
 </code></pre></div>
 

@@ -1147,6 +1147,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../thunderbird/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thunderbird
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ubuntu_launcher/" class="md-nav__link">
         
   
@@ -1727,7 +1754,7 @@
 </code></pre></div></p>
 <h4 id="string">String</h4>
 <p>Definition:
-<div class="highlight"><pre><span></span><code>&gt; string = &quot;text&quot;
+<div class="highlight"><pre><span></span><code>&gt; string = "text"
 =&gt; text
 </code></pre></div></p>
 <h4 id="boolean">Boolean</h4>
@@ -1803,7 +1830,7 @@ true
 <h4 id="example-2">Example 2</h4>
 <p>file.rb:
 <div class="highlight"><pre><span></span><code><span class="mi">3</span><span class="o">.</span><span class="n">times</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="s2">"Hello"</span>
 <span class="k">end</span>
 </code></pre></div></p>
 <p>Run:
@@ -1815,7 +1842,7 @@ Hello
 <h4 id="example-3">Example 3</h4>
 <p>file.rb:
 <div class="highlight"><pre><span></span><code><span class="mi">3</span><span class="o">.</span><span class="n">times</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
-<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Hello </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="s2">"Hello </span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
 </code></pre></div></p>
 <p>Run:
@@ -1844,12 +1871,12 @@ end
 <p>file.rb:
 <div class="highlight"><pre><span></span><code><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
 
-<span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;a = </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">puts</span><span class="w"> </span><span class="s2">"a = </span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2">"</span>
 
 <span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span>
-<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;a &gt; 10&quot;</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="s2">"a &gt; 10"</span>
 <span class="k">else</span>
-<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;a &lt;= 10&quot;</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="s2">"a &lt;= 10"</span>
 <span class="k">end</span>
 </code></pre></div></p>
 <p>Run:
@@ -1899,7 +1926,7 @@ end
 <span class="w">    </span><span class="k">end</span>
 
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">nom_complet</span>
-<span class="w">        </span><span class="n">prenom</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nom</span>
+<span class="w">        </span><span class="n">prenom</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nom</span>
 <span class="w">    </span><span class="k">end</span>
 
 <span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">habite_en</span><span class="p">(</span><span class="n">valeur</span><span class="p">)</span>
@@ -1907,13 +1934,13 @@ end
 <span class="w">    </span><span class="k">end</span>
 <span class="k">end</span>
 
-<span class="n">bob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Utilisateur</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
-<span class="n">bob</span><span class="o">.</span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Lewis&quot;</span>
-<span class="n">bob</span><span class="o">.</span><span class="n">pays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;France&quot;</span>
+<span class="n">bob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Utilisateur</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"Bob"</span><span class="p">)</span>
+<span class="n">bob</span><span class="o">.</span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Lewis"</span>
+<span class="n">bob</span><span class="o">.</span><span class="n">pays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"France"</span>
 
-<span class="nb">puts</span><span class="w"> </span><span class="n">bob</span><span class="o">.</span><span class="n">prenom</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bob</span><span class="o">.</span><span class="n">nom</span>
+<span class="nb">puts</span><span class="w"> </span><span class="n">bob</span><span class="o">.</span><span class="n">prenom</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bob</span><span class="o">.</span><span class="n">nom</span>
 <span class="n">bob</span><span class="o">.</span><span class="n">nom_complet</span>
-<span class="nb">puts</span><span class="w"> </span><span class="n">bob</span><span class="o">.</span><span class="n">habite_en</span><span class="p">(</span><span class="s2">&quot;France&quot;</span><span class="p">)</span>
+<span class="nb">puts</span><span class="w"> </span><span class="n">bob</span><span class="o">.</span><span class="n">habite_en</span><span class="p">(</span><span class="s2">"France"</span><span class="p">)</span>
 </code></pre></div></p>
 <p>Run:
 <div class="highlight"><pre><span></span><code>&gt; ruby file.rb

@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../wildcards/">
+        <link rel="prev" href="../teensy/">
       
+      
+        <link rel="next" href="../ubuntu_launcher/">
       
       
         
@@ -21,7 +23,7 @@
     
     
       
-        <title>XML - SebDocs</title>
+        <title>Thunderbird - SebDocs</title>
       
     
     
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#xml" class="md-skip">
+        <a href="#thunderbird" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              XML
+              Thunderbird
             
           </span>
         </div>
@@ -745,10 +747,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../thunderbird/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thunderbird
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -764,6 +793,37 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#customization-of-displayed-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Customization of displayed headers
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -907,37 +967,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    XML
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../xml/" class="md-nav__link">
         
   
   
@@ -953,37 +986,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#c-libraries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        C libraries
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1015,10 +1017,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c-libraries" class="md-nav__link">
+  <a href="#customization-of-displayed-headers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        C libraries
+        Customization of displayed headers
       
     </span>
   </a>
@@ -1042,14 +1044,12 @@
 
 
 
-<h1 id="xml">XML</h1>
-<h2 id="c-libraries">C libraries</h2>
-<p>Main C libraries for managing XML file:</p>
-<ul>
-<li>libxml2: read and write: <a href="https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home">libxml2</a>  </li>
-<li>libexpact: Only read: <a href="https://libexpat.github.io">libexpact</a>  </li>
-<li>mini-xml: read and write: <a href="https://www.msweet.org/mxml/">mini-xml</a>  </li>
-</ul>
+<h1 id="thunderbird">Thunderbird</h1>
+<h2 id="customization-of-displayed-headers">Customization of displayed headers</h2>
+<p>Go to the advanced preferences (Settings -&gt; General -&gt; Config Editor) and add the fields you want to display under this key (separate multiple fields with a space):
+<div class="highlight"><pre><span></span><code>mailnews.headers.extraExpandedHeaders    X-Real-Sender
+</code></pre></div>
+Source: https://kb.mozillazine.org/Custom_headers#Customize_what_headers_you_see</p>
 
 
 

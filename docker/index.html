@@ -852,6 +852,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../thunderbird/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thunderbird
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ubuntu_launcher/" class="md-nav__link">
         
   
@@ -1147,11 +1174,11 @@ docker<span class="w"> </span>build<span class="w"> </span>--no-cache<span class
 </code></pre></div>
 <p>Or build with HA image:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/home-assistant/amd64-base:latest
-docker<span class="w"> </span>build<span class="w"> </span>--no-cache<span class="w"> </span>--build-arg<span class="o">=</span><span class="s2">&quot;BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest&quot;</span><span class="w"> </span>-t<span class="w"> </span>website-ha:latest<span class="w"> </span>.
+docker<span class="w"> </span>build<span class="w"> </span>--no-cache<span class="w"> </span>--build-arg<span class="o">=</span><span class="s2">"BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest"</span><span class="w"> </span>-t<span class="w"> </span>website-ha:latest<span class="w"> </span>.
 </code></pre></div>
 <p>Run locally to test:
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/site&quot;</span>,target<span class="o">=</span>/data/site<span class="w"> </span>--name<span class="w"> </span>website<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>website<span class="w"> </span><span class="p">&amp;</span>
-docker<span class="w"> </span>run<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/site&quot;</span>,target<span class="o">=</span>/data/site<span class="w"> </span>--name<span class="w"> </span>website<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>website-ha<span class="w"> </span><span class="p">&amp;</span>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/site"</span>,target<span class="o">=</span>/data/site<span class="w"> </span>--name<span class="w"> </span>website<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>website<span class="w"> </span><span class="p">&amp;</span>
+docker<span class="w"> </span>run<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/site"</span>,target<span class="o">=</span>/data/site<span class="w"> </span>--name<span class="w"> </span>website<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>website-ha<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div></p>
 <h2 id="update-docker">Update docker</h2>
 <p>Generate a new image from the source:
