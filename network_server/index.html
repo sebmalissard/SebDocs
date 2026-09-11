@@ -981,6 +981,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../xml/" class="md-nav__link">
         
   
@@ -1068,11 +1095,14 @@
 
 <h1 id="network-server">Network server</h1>
 <h2 id="remote-scan-server-port">Remote scan server port</h2>
-<p>tcp:
+<p>tcp scan:
 <div class="highlight"><pre><span></span><code>nmap -p 0-65535 -v &lt;ip_server/url&gt;
 </code></pre></div>
-udp:
+udp scan:
 <div class="highlight"><pre><span></span><code>sudo nmap -p 0-65535 -v &lt;ip_server/url&gt; -sU
+</code></pre></div>
+tcp scan + service identification:
+<div class="highlight"><pre><span></span><code>nmap -sV -sC -p- &lt;ip_server/url&gt;
 </code></pre></div></p>
 <h2 id="get-listen-port">Get listen port</h2>
 <div class="highlight"><pre><span></span><code>netstat -lnp

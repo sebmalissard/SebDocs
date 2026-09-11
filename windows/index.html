@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../docker/">
+        <link rel="prev" href="../wildcards/">
       
       
-        <link rel="next" href="../linux_file_permissions/">
+        <link rel="next" href="../xml/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Kernel module - SebDocs</title>
+        <title>Windows - SebDocs</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kernel-module" class="md-skip">
+        <a href="#windows" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kernel module
+              Windows
             
           </span>
         </div>
@@ -396,37 +396,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Kernel module
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../kernel_module/" class="md-nav__link">
         
   
   
@@ -442,37 +415,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#install-linux-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Install Linux source
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -967,10 +909,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../windows/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -986,6 +955,37 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#startup-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Startup application
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1044,10 +1044,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-linux-source" class="md-nav__link">
+  <a href="#startup-application" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install Linux source
+        Startup application
       
     </span>
   </a>
@@ -1071,11 +1071,18 @@
 
 
 
-<h1 id="kernel-module">Kernel module</h1>
-<h2 id="install-linux-source">Install Linux source</h2>
-<div class="highlight"><pre><span></span><code>sudo apt update
-sudo apt install linux-source
-</code></pre></div>
+<h1 id="windows">Windows</h1>
+<h2 id="startup-application">Startup application</h2>
+<p>To run your application automatically at startup, add it (or a shortcut to it) in this folder:
+<div class="highlight"><pre><span></span><code>Windows + R
+shell:startup
+</code></pre></div></p>
+<p>Example path:
+<div class="highlight"><pre><span></span><code>C:\Users\Seb\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+</code></pre></div></p>
+<p>Example shortcut target:
+<div class="highlight"><pre><span></span><code>C:\Users\Seb\AppData\Local\Microsoft\WindowsApps\pythonw.exe "C:\Users\Seb\Documents\my-toolkit\scripts\sync_torrent.py"
+</code></pre></div></p>
 
 
 
