@@ -766,6 +766,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#create-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create user
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1027,6 +1038,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#create-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create user
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1065,6 +1087,18 @@
    guest ok = yes
    force user = nobody
    force group = nobody
+</code></pre></div></p>
+<h2 id="create-user">Create user</h2>
+<p>Samba user need to be create and exist on the OS.</p>
+<p>Create OS user:
+<div class="highlight"><pre><span></span><code>sudo useradd -M -s /usr/sbin/nologin &lt;user&gt;
+</code></pre></div></p>
+<p>Create Samba user:
+<div class="highlight"><pre><span></span><code>sudo smbpasswd -a &lt;user&gt;
+</code></pre></div>
+Edit <code>/etc/samba/smb.conf</code> if needed and check the config with <code>testparm</code></p>
+<p>Restart smb server:
+<div class="highlight"><pre><span></span><code>sudo service smbd force-reload
 </code></pre></div></p>
 
 
