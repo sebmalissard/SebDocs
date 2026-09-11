@@ -27,3 +27,23 @@ vi /etc/samba/smb.conf
    force user = nobody
    force group = nobody
 ```
+
+## Create user
+
+Samba user need to be create and exist on the OS.
+
+Create OS user:
+```
+sudo useradd -M -s /usr/sbin/nologin <user>
+```
+
+Create Samba user:
+```
+sudo smbpasswd -a <user>
+```
+Edit `/etc/samba/smb.conf` if needed and check the config with `testparm`
+
+Restart smb server:
+```
+sudo service smbd force-reload
+```
