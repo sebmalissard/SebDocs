@@ -103,3 +103,28 @@ docker push seb9192/server:tagname
 docker tag keepass:latest seb9192/server:keepass-230804
 docker push seb9192/server:keepass-230804
 ```
+
+## Docker Network
+
+To avoid network conflicts with the home network, remove `192.168.0.0/16` from the default Docker pool. To change the default network range used by Docker, edit (or create) the file `/etc/docker/daemon.json`:
+```json
+{
+  "default-address-pools": [
+    { "base": "172.17.0.0/16", "size": 16 },
+    { "base": "172.18.0.0/16", "size": 16 },
+    { "base": "172.19.0.0/16", "size": 16 },
+    { "base": "172.20.0.0/14", "size": 16 },
+    { "base": "172.24.0.0/14", "size": 16 },
+    { "base": "172.28.0.0/14", "size": 16 }
+  ]
+}
+```
+
+Then restart Docker:
+```bash
+sudo systemctl restart docker
+```
+
+If needed, delete the network using a non-allowed IP range and recreate all the stacks associated with it. This is required because Docker statically assigns the network address at network creation time.
+
+Source: https://docs.docker.com/engine/network/
