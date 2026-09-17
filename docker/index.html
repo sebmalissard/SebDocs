@@ -486,6 +486,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docker-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Network
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1142,6 +1153,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docker-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Network
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1228,6 +1250,24 @@ docker<span class="w"> </span>push<span class="w"> </span>seb9192/server:tagname
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>tag<span class="w"> </span>keepass:latest<span class="w"> </span>seb9192/server:keepass-230804
 docker<span class="w"> </span>push<span class="w"> </span>seb9192/server:keepass-230804
 </code></pre></div></p>
+<h2 id="docker-network">Docker Network</h2>
+<p>To avoid network conflicts with the home network, remove <code>192.168.0.0/16</code> from the default Docker pool. To change the default network range used by Docker, edit (or create) the file <code>/etc/docker/daemon.json</code>:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"default-address-pools"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.17.0.0/16"</span><span class="p">,</span><span class="w"> </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.18.0.0/16"</span><span class="p">,</span><span class="w"> </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.19.0.0/16"</span><span class="p">,</span><span class="w"> </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.20.0.0/14"</span><span class="p">,</span><span class="w"> </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.24.0.0/14"</span><span class="p">,</span><span class="w"> </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.28.0.0/14"</span><span class="p">,</span><span class="w"> </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Then restart Docker:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
+</code></pre></div></p>
+<p>If needed, delete the network using a non-allowed IP range and recreate all the stacks associated with it. This is required because Docker statically assigns the network address at network creation time.</p>
+<p>Source: <a href="https://docs.docker.com/engine/network/">https://docs.docker.com/engine/network/</a></p>
 
 
 
