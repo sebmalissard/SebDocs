@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../wireguard/">
+        <link rel="prev" href="../windows/">
       
+      
+        <link rel="next" href="../xml/">
       
       
         
@@ -21,7 +23,7 @@
     
     
       
-        <title>XML - SebDocs</title>
+        <title>Wireguard - SebDocs</title>
       
     
     
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#xml" class="md-skip">
+        <a href="#wireguard" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              XML
+              Wireguard
             
           </span>
         </div>
@@ -988,33 +990,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../wireguard/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Wireguard
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -1034,7 +1009,7 @@
   <span class="md-ellipsis">
     
   
-    XML
+    Wireguard
   
 
     
@@ -1052,7 +1027,7 @@
   <span class="md-ellipsis">
     
   
-    XML
+    Wireguard
   
 
     
@@ -1078,13 +1053,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c-libraries" class="md-nav__link">
+  <a href="#install-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        C libraries
+        Install client
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Install client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debian
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1092,6 +1084,33 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1123,13 +1142,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c-libraries" class="md-nav__link">
+  <a href="#install-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        C libraries
+        Install client
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Install client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debian
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1150,14 +1186,21 @@
 
 
 
-<h1 id="xml">XML</h1>
-<h2 id="c-libraries">C libraries</h2>
-<p>Main C libraries for managing XML file:</p>
-<ul>
-<li>libxml2: read and write: <a href="https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home">libxml2</a>  </li>
-<li>libexpact: Only read: <a href="https://libexpat.github.io">libexpact</a>  </li>
-<li>mini-xml: read and write: <a href="https://www.msweet.org/mxml/">mini-xml</a>  </li>
-</ul>
+<h1 id="wireguard">Wireguard</h1>
+<h2 id="install-client">Install client</h2>
+<p>Generate new peer config see: my-toolkit/vpn/wg_gen_config.sh</p>
+<h3 id="debian">Debian</h3>
+<div class="highlight"><pre><span></span><code>sudo apt install wireguard openresolv
+</code></pre></div>
+<p>Copy the config on the client:
+<div class="highlight"><pre><span></span><code>sudo cp peerX.confg /etc/wireguard/wg0.conf
+</code></pre></div></p>
+<p>Start the VPN:
+<div class="highlight"><pre><span></span><code>sudo wg-quick up wg0
+</code></pre></div></p>
+<p>Check the status:
+<div class="highlight"><pre><span></span><code>sudo wg show
+</code></pre></div></p>
 
 
 
